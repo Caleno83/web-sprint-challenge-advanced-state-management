@@ -2,6 +2,12 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getSmurf } from '../Actions/Actions';
 import Smurf from "./Smurf";
+import styled from "styled-components";
+
+const SmurfDiv = styled.div`
+margin-left: 12px;
+color: blue;
+`
 
 const SmurfList = ({ getSmurf, isFetching, error, smurfs }) => {
 
@@ -11,7 +17,7 @@ const SmurfList = ({ getSmurf, isFetching, error, smurfs }) => {
        }, [getSmurf]);
 
   return (
-    <>
+    <SmurfDiv>
       {isFetching ? (
         <h3>Hold tight, we're fetching your Smurf Data...</h3>
       ) : (
@@ -22,7 +28,7 @@ const SmurfList = ({ getSmurf, isFetching, error, smurfs }) => {
         </div>
       )}
       {error !== "" ? <h4 className="error">{error}</h4> : null}
-    </>
+    </SmurfDiv>
   );
 };
 
