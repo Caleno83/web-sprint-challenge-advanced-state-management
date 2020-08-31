@@ -1,16 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>SMURFS! W/Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
-  }
-}
+import SmurfForm from "./SmurfForm";
+import { Route } from "react-router-dom";
+import Home from "./Home";
+import NavBar from "./NavBar";
+
+const App = () => {
+  return (
+    <div className="App">
+      <NavBar />
+
+      <Route path="/" exact component={Home} />
+
+      <Route path="/smurfs">
+        <SmurfForm />
+      </Route>
+    </div>
+  );
+};
 
 export default App;
