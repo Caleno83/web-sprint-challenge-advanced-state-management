@@ -5,7 +5,7 @@ import {
   FETCHING_SMURF_ERROR,
 } from "../Actions/Actions";
 
-//set intialState reducer
+//set initialState reducer
 const initialState = {
   smurfs: [],
   isFetching: false,
@@ -17,13 +17,13 @@ export const Reducer = (state = initialState, action) => {
   switch (action.type) {
     //Here we created this case to start API fetch
     case FETCHING_SMURF_START:
-      return state;
+      return { ...state, isFetching: true, error: "" };
     // Here this case is created to see if isFetching is successful
     case FETCHING_SMURF_SUCCESS:
-      return state;
+      return { ...state,  smurfs: action.payload, isFetching: false, };
     //Here this case is created to see if an API is not successful
     case FETCHING_SMURF_ERROR:
-      return state;
+      return { ...state, isFetching: false, error: action.payload };
     default:
       return state;
   }
